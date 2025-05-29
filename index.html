@@ -1,0 +1,31 @@
+---
+layout: default
+title: Home
+---
+
+<section id="upcoming-events">
+  <h2>Upcoming Events</h2>
+  {% if site.data.events and site.data.events.size > 0 %}
+    <ul>
+      {% for event in site.data.events %}
+        <li>
+          <h3>{{ event.name }}</h3>
+          <p><strong>Date:</strong> {{ event.date | date: "%B %d, %Y" }}</p>
+          <p>{{ event.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No upcoming events.</p>
+  {% endif %}
+</section>
+
+<section id="school-resources">
+  <h2>School Resources</h2>
+  <ul>
+    <li><a href="#">School Library</a></li>
+    <li><a href="#">Cafeteria Menu</a></li>
+    <li><a href="#">Athletics Calendar</a></li>
+    <li><a href="#">Student Handbook</a></li>
+  </ul>
+</section>
