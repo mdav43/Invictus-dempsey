@@ -1,13 +1,7 @@
-# Site settings
-title: My Events Page
-description: A simple site to display upcoming events.
-
-# Collections
-collections:
-  events:
-    output: true # This will ensure each event markdown file becomes a page
-    permalink: /events/:name/ # Defines the URL structure for event pages
-
+# theme: minima # Example: if you want to use a theme, but we are using custom CSS for now.
+# baseurl: "" # Set this if your site is in a subdirectory on the server, e.g., /my-repo
+title: My School Website
+description: Upcoming events and resources for our school.
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -81,4 +75,3 @@ plugins:
   - sassc
   - titlecase
   - webrick
-
