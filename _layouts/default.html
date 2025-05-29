@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: site.title }}</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>School Events Page</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1><a href="/">{{ site.title | default: "My Events Site" }}</a></h1>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <header class="bg-blue-600 text-white p-6 shadow-md">
+        <h1 class="text-3xl font-bold">Invictus Dempsey</h1>
     </header>
-    <main>
+    <main class="container mx-auto p-6">
         {{ content }}
     </main>
-    <footer>
-        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+    <footer class="text-center p-4 mt-8 text-sm text-gray-600 bg-gray-200">
+        <p>&copy; {{ 'now' | date: "%Y" }} Invictus Dempsey</p>
     </footer>
 </body>
 </html>

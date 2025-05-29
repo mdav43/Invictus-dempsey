@@ -1,38 +1,31 @@
 ---
 layout: default
-title: Upcoming Events
+title: Home
 ---
 
-<div class="event-list">
-  <h2>{{ page.title }}</h2>
-
-  {% assign events = site.events | sort: 'start_date' %}
-  {% assign current_month = "" %}
-
-  {% if events.size == 0 %}
-    <p>No upcoming events. Please check back later!</p>
+<section id="upcoming-events">
+  <h2 class="text-2xl font-semibold text-gray-700 mb-4">Upcoming Events</h2>
+  {% if site.data.events and site.data.events.size > 0 %}
+    <ul class="space-y-4">
+      {% for event in site.data.events %}
+        <li class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+          <h3 class="text-xl font-bold text-blue-700 mb-1">{{ event.name }}</h3>
+          <p class="text-sm text-gray-600 mb-2"><strong>Date:</strong> {{ event.date | date: "%B %d, %Y" }}</p>
+          <p class="text-gray-700">{{ event.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
   {% else %}
-    {% for event in events %}
-      {% assign event_month = event.start_date | date: "%B %Y" %}
-      {% if event_month != current_month %}
-        {% unless forloop.first %}
-          </ul>
-        {% endunless %}
-        <h3>{{ event_month }}</h3>
-        <ul class="event-group">
-        {% assign current_month = event_month %}
-      {% endif %}
-
-      <li>
-        <h4><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h4>
-        <p class="event-date">{{ event.start_date | date: "%A, %B %d, %Y" }}</p>
-        <p>{{ event.description }}</p>
-      </li>
-
-      {% if forloop.last %}
-        </ul>
-      {% endif %}
-    {% endfor %}
+    <p class="bg-white p-6 rounded-lg shadow-lg text-gray-700">No upcoming events.</p>
   {% endif %}
-</div>
+</section>
 
+<section id="school-resources">
+  <h2 class="text-2xl font-semibold text-gray-700 mb-4">School Resources</h2>
+  <ul class="space-y-4">
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">School Library</a></li>
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Cafeteria Menu</a></li>
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Athletics Calendar</a></li>
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Student Handbook</a></li>
+  </ul>
+</section>
