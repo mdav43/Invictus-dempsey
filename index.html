@@ -4,28 +4,28 @@ title: Home
 ---
 
 <section id="upcoming-events">
-  <h2>Upcoming Events</h2>
+  <h2 class="text-2xl font-semibold text-gray-700 mb-4">Upcoming Events</h2>
   {% if site.data.events and site.data.events.size > 0 %}
-    <ul>
+    <ul class="space-y-4">
       {% for event in site.data.events %}
-        <li>
-          <h3>{{ event.name }}</h3>
-          <p><strong>Date:</strong> {{ event.date | date: "%B %d, %Y" }}</p>
-          <p>{{ event.description }}</p>
+        <li class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+          <h3 class="text-xl font-bold text-blue-700 mb-1">{{ event.name }}</h3>
+          <p class="text-sm text-gray-600 mb-2"><strong>Date:</strong> {{ event.date | date: "%B %d, %Y" }}</p>
+          <p class="text-gray-700">{{ event.description }}</p>
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>No upcoming events.</p>
+    <p class="bg-white p-6 rounded-lg shadow-lg text-gray-700">No upcoming events.</p>
   {% endif %}
 </section>
 
 <section id="school-resources">
-  <h2>School Resources</h2>
-  <ul>
-    <li><a href="#">School Library</a></li>
-    <li><a href="#">Cafeteria Menu</a></li>
-    <li><a href="#">Athletics Calendar</a></li>
-    <li><a href="#">Student Handbook</a></li>
+  <h2 class="text-2xl font-semibold text-gray-700 mb-4">School Resources</h2>
+  <ul class="space-y-4">
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">School Library</a></li>
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Cafeteria Menu</a></li>
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Athletics Calendar</a></li>
+    <li class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500"><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Student Handbook</a></li>
   </ul>
 </section>
