@@ -1,0 +1,37 @@
+---
+layout: default
+title: Upcoming Events
+---
+
+<div class="event-list">
+  <h2>{{ page.title }}</h2>
+
+  {% assign events = site.events | sort: 'start_date' %}
+  {% assign current_month = "" %}
+
+  {% if events.size == 0 %}
+    <p>No upcoming events. Please check back later!</p>
+  {% else %}
+    {% for event in events %}
+      {% assign event_month = event.start_date | date: "%B %Y" %}
+      {% if event_month != current_month %}
+        {% unless forloop.first %}
+          </ul>
+        {% endunless %}
+        <h3>{{ event_month }}</h3>
+        <ul class="event-group">
+        {% assign current_month = event_month %}
+      {% endif %}
+
+      <li>
+        <h4><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h4>
+        <p class="event-date">{{ event.start_date | date: "%A, %B %d, %Y" }}</p>
+        <p>{{ event.description }}</p>
+      </li>
+
+      {% if forloop.last %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>

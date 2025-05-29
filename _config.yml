@@ -1,0 +1,9 @@
+# Site settings
+title: My Events Page
+description: A simple site to display upcoming events.
+
+# Collections
+collections:
+  events:
+    output: true # This will ensure each event markdown file becomes a page
+    permalink: /events/:name/ # Defines the URL structure for event pages
